@@ -1,10 +1,10 @@
 # Table of contents
 
 * [3D Puzzle Platformer Game](README.md)
+* [Reference List](reference-list.md)
 
 ## 1 Analysis <a href="#analysis" id="analysis"></a>
 
-* [Reference List](analysis/reference-list.md)
 * [1.1 Problem Identification](1-analysis/1.1-problem-identification.md)
 * [1.2 Stakeholders](1-analysis/1.2-stakeholders.md)
 * [1.3 Research](1-analysis/1.3-research-the-problem.md)
