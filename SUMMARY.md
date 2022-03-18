@@ -1,6 +1,6 @@
 # Table of contents
 
-* [3D Platformer Game](README.md)
+* [3D Puzzle Platformer Game](README.md)
 
 ## 1 Analysis <a href="#analysis" id="analysis"></a>
 
