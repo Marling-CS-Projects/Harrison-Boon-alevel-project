@@ -2,15 +2,14 @@
 description: Computer Science H446-03
 ---
 
-# Some Generic Project
+# 3D Platformer Game
 
-|                  |                  |
-| ---------------- | ---------------- |
-| Candidate Name   | Generic Student  |
-| Candidate Number | 9999             |
-| Centre Name      | Marling School   |
-| Centre Number    | 57037            |
+\[Insert fun image here]
 
-Note to Assessor: This project has been created with interactive elements. In order to view as intended by the students, please follow the secure link below.
+|                  |                |
+| ---------------- | -------------- |
+| Candidate Name   | Harrison Boon  |
+| Candidate Number | ----           |
+| Centre Name      | Marling School |
+| Centre Number    | 57037          |
 
-[https://marling-school.gitbook.io/ben-fielder-project/](https://marling-school.gitbook.io/ben-fielder-project/)
