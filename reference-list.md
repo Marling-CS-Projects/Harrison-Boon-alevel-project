@@ -10,6 +10,6 @@
 
 **HP (2021). The Top 50 Best-Selling Video Games of All Time. \[online] Hp.com. Available at:** [**https://www.hp.com/us-en/shop/tech-takes/top-50-best-selling-video-games-all-time**](https://www.hp.com/us-en/shop/tech-takes/top-50-best-selling-video-games-all-time) **\[Accessed 18 Mar. 2022].**
 
-**Knight, W. (2021). The Chip Shortage Is Driving up Tech Prices—Starting with TVs. \[online] Wired. Available at:** [**https://www.wired.com/story/chip-shortage-electronics-prices-tvs-displays/**](https://www.wired.com/story/chip-shortage-electronics-prices-tvs-displays/) **\[Accessed 18 Mar. 2022].**
-
 **Worrall, W. (2021). What Is a Platformer in Gaming? \[online] MUO. Available at:** [**https://www.makeuseof.com/platform-games-explained/**](https://www.makeuseof.com/platform-games-explained/) **\[Accessed 21 Mar. 2022].**
+
+**Knight, W. (2021). The Chip Shortage Is Driving up Tech Prices—Starting with TVs. \[online] Wired. Available at:** [**https://www.wired.com/story/chip-shortage-electronics-prices-tvs-displays/**](https://www.wired.com/story/chip-shortage-electronics-prices-tvs-displays/) **\[Accessed 18 Mar. 2022].**
