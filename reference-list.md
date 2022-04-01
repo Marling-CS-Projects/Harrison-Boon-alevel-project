@@ -13,3 +13,5 @@
 **Worrall, W. (2021). What Is a Platformer in Gaming? \[online] MUO. Available at:** [**https://www.makeuseof.com/platform-games-explained/**](https://www.makeuseof.com/platform-games-explained/) **\[Accessed 21 Mar. 2022].**
 
 **Knight, W. (2021). The Chip Shortage Is Driving up Tech Prices—Starting with TVs. \[online] Wired. Available at:** [**https://www.wired.com/story/chip-shortage-electronics-prices-tvs-displays/**](https://www.wired.com/story/chip-shortage-electronics-prices-tvs-displays/) **\[Accessed 18 Mar. 2022].**
+
+**PEGI (2020). How we rate games | Pegi Public Site. \[online] Pegi.info. Available at:** [**https://pegi.info/page/how-we-rate-games**](https://pegi.info/page/how-we-rate-games) **\[Accessed 1 Apr. 2022].**
