@@ -1,166 +1,171 @@
-import './style.css';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import * as dat from 'dat.gui';
+import "./style.css";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "three";
+const accelerationDTG = 0.1;
+const playerSpeed = 0.1;
 
-/**
- * Base
- */
-// Debug
-const gui = new dat.GUI();
+const keyMap: Record<string, boolean> = { jump: false };
+document.addEventListener("keydown", (e) => {
+  keyMap[e.key] = true;
+});
+document.addEventListener("keyup", (e) => {
+  keyMap[e.key] = false;
+});
 
 // Canvas
-const canvas: HTMLCanvasElement | null = document.querySelector('canvas.webgl');
+const canvas: HTMLCanvasElement | null = document.querySelector("canvas.webgl");
 if (!canvas)
   throw Error(
-    'Could not find canvas.webgl canvas in the document. Did you use the correct selector?',
+    "Could not find canvas.webgl canvas in the document. Did you use the correct selector?"
   );
 
 // Scene
 const scene = new THREE.Scene();
 
-/**
- * Textures
- * - Import URL is from the `Public` folder
- */
-const textureLoader = new THREE.TextureLoader();
-
-// Bricks Texture
-const bricksAmbientOcclusionTexture = textureLoader.load(
-  'textures/bricks/ambientOcclusion.jpg',
-);
-const bricksColorTexture = textureLoader.load('textures/bricks/color.jpg');
-const bricksNormalTexture = textureLoader.load('textures/bricks/normal.jpg');
-const bricksRoughnessTexture = textureLoader.load(
-  'textures/bricks/roughness.jpg',
-);
-
-/**
- * OBJECTS
- */
-
 // Box
 const box = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshStandardMaterial({
-    map: bricksColorTexture,
-    aoMap: bricksAmbientOcclusionTexture,
-    normalMap: bricksNormalTexture,
-    roughnessMap: bricksRoughnessTexture,
-  }),
+  new THREE.BoxGeometry(1, 2, 1),
+  new THREE.MeshLambertMaterial({ color: 0xff0044 })
 );
 box.position.y = 1;
+let boxVelocity = 0;
 
 scene.add(box);
 
 // Floor
 const floor = new THREE.Mesh(
-  new THREE.PlaneGeometry(20, 20),
-  new THREE.MeshStandardMaterial({
-    color: 0x00ff00,
-  }),
-);
-floor.geometry.setAttribute(
-  'uv2',
-  new THREE.Float32BufferAttribute(floor.geometry.attributes.uv.array, 2),
+  new THREE.PlaneGeometry(20, 20, 20),
+  new THREE.MeshLambertMaterial({
+    color: 0xf3d09b,
+  })
 );
 floor.rotation.x = -Math.PI * 0.5;
 floor.position.y = 0;
 scene.add(floor);
 
-/**
- * Lights
- */
-// Ambient light
-const ambientLight = new THREE.AmbientLight('#b9d5ff', 0.5);
-gui.add(ambientLight, 'intensity').min(0).max(1).step(0.001);
-scene.add(ambientLight);
-
-const directionalLight = new THREE.DirectionalLight('#ffffff', 0.75);
-directionalLight.position.set(4, 5, -2);
-gui.add(directionalLight, 'intensity').min(0).max(1).step(0.001);
-gui.add(directionalLight.position, 'x').min(-5).max(5).step(0.001);
-gui.add(directionalLight.position, 'y').min(-5).max(5).step(0.001);
-gui.add(directionalLight.position, 'z').min(-5).max(5).step(0.001);
+const hemisphereLight = new THREE.HemisphereLight(0xb0d6f5, 0xf3d09b, 1);
+scene.add(hemisphereLight);
+const directionalLight = new THREE.DirectionalLight(0xeedca5);
+directionalLight.position.set(5, 10, 10);
 scene.add(directionalLight);
 
-/**
- * Sizes
- */
 const sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
 
-window.addEventListener('resize', () => {
-  // Update sizes
+window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
   sizes.height = window.innerHeight;
-
-  // Update camera
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
-
-  // Update renderer
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
-/**
- * Camera
- */
-// Base camera
 const camera = new THREE.PerspectiveCamera(
   75,
   sizes.width / sizes.height,
   0.1,
-  100,
+  100
 );
 camera.position.x = 4;
-camera.position.y = 2;
-camera.position.z = 5;
+camera.position.y = 4;
+camera.position.z = 4;
 scene.add(camera);
 
-// Controls
 const controls = new OrbitControls(camera, canvas);
+controls.target = box.position;
+controls.update();
 controls.enableDamping = true;
 
-/**
- * Renderer
- */
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
 });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor(0xffffff);
+renderer.setClearColor(0x0c164f);
 
-/**
- * Shadows
- */
+directionalLight.castShadow = true;
+directionalLight.shadow.camera = new THREE.OrthographicCamera(
+  -10,
+  10,
+  10,
+  -10,
+  0.1,
+  100
+);
+
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 floor.receiveShadow = true;
 box.castShadow = true;
 
-/**
- * Animate
- */
-const clock = new THREE.Clock();
+function moveBox() {
+  const forward = new THREE.Vector2(
+    camera.position.x - box.position.x,
+    camera.position.z - box.position.z
+  );
+  const keyCount = Object.keys(keyMap).filter(
+    (key) =>
+      keyMap[key] && ["w", "W", "s", "S", "a", "A", "d", "D"].includes(key)
+  ).length;
+  forward
+    .normalize()
+    .multiplyScalar(keyCount === 2 ? playerSpeed / Math.sqrt(2) : playerSpeed);
 
-const tick = () => {
-  const elapsedTime = clock.getElapsedTime();
+  if (keyMap["w"] || keyMap["W"]) {
+    camera.position.x += -forward.x;
+    box.position.x += -forward.x;
+    camera.position.z += -forward.y;
+    box.position.z += -forward.y;
+  }
+  if (keyMap["s"] || keyMap["S"]) {
+    camera.position.x += forward.x;
+    box.position.x += forward.x;
+    camera.position.z += forward.y;
+    box.position.z += forward.y;
+  }
+  if (keyMap["a"] || keyMap["A"]) {
+    camera.position.x += -forward.y;
+    box.position.x += -forward.y;
+    camera.position.z += forward.x;
+    box.position.z += forward.x;
+  }
+  if (keyMap["d"] || keyMap["D"]) {
+    camera.position.x += forward.y;
+    box.position.x += forward.y;
+    camera.position.z += -forward.x;
+    box.position.z += -forward.x;
+  }
 
-  // Animate Objects
-  box.rotation.x = Math.sin(elapsedTime);
-
-  // Update controls
+  controls.target = box.position;
   controls.update();
 
-  // Render
-  renderer.render(scene, camera);
+  if (box.position.y > 1 - boxVelocity) {
+    box.position.y += boxVelocity;
+    camera.position.y += boxVelocity;
+  } else {
+    keyMap["jump"] = false;
+    boxVelocity = 0;
+    box.position.y = 1;
+  }
+}
+function jump() {
+  if (keyMap[" "] && !keyMap["jump"]) {
+    keyMap["jump"] = true;
+    boxVelocity = 10;
+    box.position.y += boxVelocity;
+    camera.position.y += boxVelocity;
+  }
+}
 
-  // Call tick again on the next frame
+const tick = () => {
+  moveBox();
+  jump();
+  boxVelocity -= accelerationDTG;
+  controls.update();
+  renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
 };
 
