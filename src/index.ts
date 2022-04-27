@@ -33,7 +33,7 @@ scene.add(hemisphereLight);
 scene.add(directionalLight);
 scene.add(camera);
 
-controls.target = box.position;
+controls.target = new THREE.Vector3(box.position.x, 0.5, box.position.z);
 controls.update();
 
 const tick = () => {
