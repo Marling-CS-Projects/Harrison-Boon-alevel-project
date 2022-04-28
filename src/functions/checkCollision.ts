@@ -9,7 +9,7 @@ function checkCollision(box: THREE.Mesh, food: THREE.Mesh) {
   ) {
     food.position.x = (Math.random() > 0.5 ? -1 : 1) * (Math.random() * 4 + 1);
     food.position.z = (Math.random() > 0.5 ? -1 : 1) * (Math.random() * 4 + 1);
-    return { frame: 1, target: box.scale.y + 0.5 };
+    return { frame: 1, target: box.scale.y + 0.5, delay: 0 };
   }
 }
 

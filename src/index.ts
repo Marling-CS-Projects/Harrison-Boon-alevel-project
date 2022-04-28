@@ -4,7 +4,6 @@ import * as THREE from "three";
 import { directionalLight } from "./lighting/directionalLight";
 import { hemisphereLight } from "./lighting/hemisphereLight";
 import { camera } from "./camera/camera";
-import { controls } from "./camera/controls";
 import { renderer } from "./rendering/renderer";
 import { box } from "./objects/box";
 import { floor } from "./objects/floor";
@@ -13,8 +12,9 @@ import { moveBox } from "./functions/moveBox";
 import { jump } from "./functions/jump";
 import { boxAnimate } from "./functions/boxAnimate";
 import { checkCollision } from "./functions/checkCollision";
+import { checkDeath } from "./functions/checkDeath";
 
-let growBox = { frame: 0, target: 0 };
+let boxAnimation = { frame: 0, target: 0, delay: 0 };
 
 const keyMap: Record<string, boolean> = { jump: false };
 document.addEventListener("keydown", (e) => {
@@ -32,16 +32,15 @@ scene.add(food);
 scene.add(hemisphereLight);
 scene.add(directionalLight);
 scene.add(camera);
-
-controls.target = new THREE.Vector3(box.position.x, 0.5, box.position.z);
-controls.update();
+camera.lookAt(box.position);
 
 const tick = () => {
-  moveBox(box, floor, camera, controls, keyMap);
-  jump(box, camera, keyMap);
-  growBox = checkCollision(box, food) || growBox;
-  growBox = boxAnimate(box, floor, camera, growBox);
-  controls.update();
+  moveBox(box, camera, keyMap);
+  jump(box, keyMap);
+  boxAnimation = checkCollision(box, food) || boxAnimation;
+  boxAnimation = checkDeath(box) || boxAnimation;
+  boxAnimation = boxAnimate(box, boxAnimation);
+
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
 };

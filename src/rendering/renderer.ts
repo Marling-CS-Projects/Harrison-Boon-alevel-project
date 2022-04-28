@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { sizes } from "../utils";
-import { canvas } from "../rendering/canvas";
+import { canvas } from "./canvas";
 
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
