@@ -5,6 +5,7 @@ class Box extends THREE.Mesh {
     super(geometry, material);
   }
   velocity: number = 0;
+  isAlive: boolean = true;
 }
 const box = new Box(
   new THREE.BoxGeometry(1, 1, 1),

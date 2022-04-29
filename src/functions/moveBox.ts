@@ -8,6 +8,16 @@ function moveBox(
   camera: THREE.PerspectiveCamera,
   keyMap: Record<string, boolean>
 ) {
+  box.velocity -= accelerationDTG;
+  if (box.position.y > 0.5 * box.scale.y - box.velocity || !isAboveFloor(box)) {
+    box.position.y += box.velocity;
+  } else {
+    keyMap["jump"] = false;
+    box.velocity = 0;
+    box.position.y = 0.5 * box.scale.y - box.velocity;
+  }
+  if (!box.isAlive) return;
+
   const forward = new THREE.Vector2(
     camera.position.x - box.position.x,
     camera.position.z - box.position.z
@@ -36,15 +46,6 @@ function moveBox(
     box.position.x += forward.y;
     box.position.z += -forward.x;
   }
-
-  if (box.position.y > 0.5 * box.scale.y - box.velocity || !isAboveFloor(box)) {
-    box.position.y += box.velocity;
-  } else {
-    keyMap["jump"] = false;
-    box.velocity = 0;
-    box.position.y = 0.5 * box.scale.y - box.velocity;
-  }
-  box.velocity -= accelerationDTG;
 }
 
 export { moveBox };
