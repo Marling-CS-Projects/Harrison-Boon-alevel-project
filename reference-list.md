@@ -19,3 +19,5 @@
 **Nintendo (1996). Super Mario 64. \[online] Nintendo of Europe GmbH. Available at:** [**https://www.nintendo.co.uk/Games/Nintendo-64/Super-Mario-64-269745.html**](https://www.nintendo.co.uk/Games/Nintendo-64/Super-Mario-64-269745.html) **\[Accessed 1 Apr. 2022].**
 
 **PEGI (2015). Search | Pegi Public Site. \[online] pegi.info. Available at:** [**https://pegi.info/search-pegi?q=3D+Sonic+The+Hedgehog+2**](https://pegi.info/search-pegi?q=3D+Sonic+The+Hedgehog+2) **\[Accessed 1 Apr. 2022].**
+
+**Goodwood and Jupp, E. (2021). **_**The six best selling racing games of all time (list) | GRR**_**. \[online] www.goodwood.com. Available at:** [**https://www.goodwood.com/grr/race/modern/2021/4/the-six-best-selling-racing-games-of-all-time/**](https://www.goodwood.com/grr/race/modern/2021/4/the-six-best-selling-racing-games-of-all-time/) **\[Accessed 26 May 2022].**

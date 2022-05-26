@@ -1,6 +1,6 @@
 # Table of contents
 
-* [3D Puzzle Platformer Game](README.md)
+* [Multiplayer Racing Game](README.md)
 * [Reference List](reference-list.md)
 
 ## 1 Analysis <a href="#analysis" id="analysis"></a>
