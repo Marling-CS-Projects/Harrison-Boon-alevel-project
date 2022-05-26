@@ -13,3 +13,7 @@
 **PEGI (2020). How we rate games | Pegi Public Site. \[online] Pegi.info. Available at:** [**https://pegi.info/page/how-we-rate-games**](https://pegi.info/page/how-we-rate-games) **\[Accessed 1 Apr. 2022].**
 
 **Goodwood and Jupp, E. (2021). **_**The six best selling racing games of all time (list) | GRR**_**. \[online] www.goodwood.com. Available at:** [**https://www.goodwood.com/grr/race/modern/2021/4/the-six-best-selling-racing-games-of-all-time/**](https://www.goodwood.com/grr/race/modern/2021/4/the-six-best-selling-racing-games-of-all-time/) **\[Accessed 26 May 2022].**
+
+**PEGI (2022). **_**Search | Pegi Public Site**_**. \[online] pegi.info. Available at:** [**https://pegi.info/search-pegi?q=Gran+turismo+7**](https://pegi.info/search-pegi?q=Gran+turismo+7) **\[Accessed 26 May 2022].**
+
+**PEGI (2021). **_**Search | Pegi Public Site**_**. \[online] pegi.info. Available at:** [**https://pegi.info/search-pegi?q=Forza+Horizon+5**](https://pegi.info/search-pegi?q=Forza+Horizon+5) **\[Accessed 26 May 2022].**
