@@ -17,3 +17,5 @@
 **PEGI (2022). **_**Search | Pegi Public Site**_**. \[online] pegi.info. Available at:** [**https://pegi.info/search-pegi?q=Gran+turismo+7**](https://pegi.info/search-pegi?q=Gran+turismo+7) **\[Accessed 26 May 2022].**
 
 **PEGI (2021). **_**Search | Pegi Public Site**_**. \[online] pegi.info. Available at:** [**https://pegi.info/search-pegi?q=Forza+Horizon+5**](https://pegi.info/search-pegi?q=Forza+Horizon+5) **\[Accessed 26 May 2022].**
+
+**Google (n.d.). **_**Chrome browser system requirements - Chrome Enterprise and Education Help**_**. \[online] support.google.com. Available at:** [**https://support.google.com/chrome/a/answer/7100626**](https://support.google.com/chrome/a/answer/7100626) **\[Accessed 1 Jun. 2022].**
