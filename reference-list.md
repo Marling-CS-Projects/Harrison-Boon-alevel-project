@@ -23,3 +23,5 @@
 **Mozilla (n.d.). **_**Will Firefox work on my mobile device? | Firefox for Android Help**_**. \[online] support.mozilla.org. Available at:** [**https://support.mozilla.org/en-US/kb/will-firefox-work-my-mobile-device#:\~:text=Firefox%20is%20available%20on%20iPhone**](https://support.mozilla.org/en-US/kb/will-firefox-work-my-mobile-device) **\[Accessed 1 Jun. 2022].**
 
 **Microsoft (2021). Microsoft Edge Supported Operating Systems. \[online] docs.microsoft.com. Available at:** [**https://docs.microsoft.com/en-us/deployedge/microsoft-edge-supported-operating-systems**](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-supported-operating-systems) **\[Accessed 1 Jun. 2022].**
+
+**Martin, J. (2021). Chrome, Firefox, Edge, Safari and more: Which is the best web browser for you? \[online] Tech Advisor. Available at:** [**https://www.techadvisor.com/test-centre/software/best-web-browsers-3635255/**](https://www.techadvisor.com/test-centre/software/best-web-browsers-3635255/) **\[Accessed 1 Jun. 2022].**
