@@ -1,10 +1,14 @@
 # 2.1 Design Frame
 
-## Systems Diagram
+## System Diagram
 
 ![System Diagram](<../.gitbook/assets/WHAT.drawio (1).png>)
 
-This diagram shows the different parts of the game that I will focus on creating. I have split each section into smaller sub-sections. Throughout the development stage, I will pick one or two of these sections to focus on at a time to gradually build up and piece together the game. I have broken the project down this way as it roughly corresponds to the success criteria.
+The system diagram outlines goals of development for my game that will serve as the criteria for my success. Due to how ambitious the diagram is, I have separated each goal into three different colours, each one representing how necessary I think the feature is. Similarly, the diagram is also split into 5 different branches which each deal with important major features of the game.
+
+<mark style="color:blue;">Blue</mark> - Integral parts of the game that should be included in the solution\
+<mark style="color:green;">Green</mark> - Parts of the game that are important but not necessary\
+<mark style="color:red;">Red</mark> - Parts that would be nice to include but should only be completed after everything else is finished
 
 ## Usability Features
 
