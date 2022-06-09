@@ -20,12 +20,7 @@ Players should be able to know what their goal is and their goals should be ache
 
 ### Efficiency
 
-The speed and accuracy to which a user can complete the goal. To do this, I will create a menu system which is easy to navigate through in order for to find what you are looking for. The information which is more important can be found with less clicks.
-
-#### Aims
-
-* Create a menu system that is quick and easy to navigate through
-* Create a controls system that isn't too complicated but allows the player to do multiple actions
+Efficiency is based around how quickly players can complete a goal or a task in the game and also whether or not they are easy to complete. This mean I will have to ensure that the UI is easy to navigate and useful. I think that in order for it to be easy to use it should take at a maximum 3 clicks in order for a player to change any setting. &#x20;
 
 ### Engaging
 
