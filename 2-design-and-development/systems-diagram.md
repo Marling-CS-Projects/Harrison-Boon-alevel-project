@@ -16,12 +16,7 @@ Usability features are really important in my game as it needs to be accessible 
 
 ### Effective
 
-Users can achieve the goal with completeness and accuracy. To do this, I will make it easy for the players to realise that they need to reach a goal in order to complete a level. I will make this goal clear to see so there is no confusion over where the players need to go.
-
-#### Aims
-
-* Create a clear goal to reach to determine the end of a level
-* Create a clear goal for any multiplayer modes
+Players should be able to know what their goal is and their goals should be acheveable without too much effort or difficulty. The progress tracking in game should be clear and easy to understand so that the player knows information about themself
 
 ### Efficiency
 
