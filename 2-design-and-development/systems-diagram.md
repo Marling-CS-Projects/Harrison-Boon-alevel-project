@@ -24,7 +24,7 @@ Efficiency is based around how quickly players can complete a goal or a task in 
 
 ### Engaging
 
-The solution is engaging for the user to use. To do this, I will create 5 levels and an online multiplayer mode to keep the players engaged and allow them to have fun while playing the game. Using vector style art will also make the game nicer to look at than blocks, so will draw more people in, keeping them engaged.
+The solution must be fun to play in order for the game to be engaging for the player. To do this, I plan on including a lot of engaging conent such as multiplayer and a procedurally generated map. These features are designed to keep the player engaged for extended periods of time and promote replaying of the game.
 
 #### Aims
 
