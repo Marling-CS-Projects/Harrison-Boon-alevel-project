@@ -24,31 +24,15 @@ Efficiency is based around how quickly players can complete a goal or a task in 
 
 ### Engaging
 
-The solution must be fun to play in order for the game to be engaging for the player. To do this, I plan on including a lot of engaging conent such as multiplayer and a procedurally generated map. These features are designed to keep the player engaged for extended periods of time and promote replaying of the game.
-
-#### Aims
-
-* Create a series of levels to work through
-* Create a multiplayer mode to play
-* Incorporate a style of game art the suits the game
+The solution must be fun to play in order for the game to be engaging for the player. To do this, I plan on including a lot of engaging conent such as multiplayer and a procedurally generated map. These features are designed to keep the player engaged for extended periods of time and promote  possible replaying of the game.
 
 ### Error Tolerant
 
-The solution should have as few errors as possible and if one does occur, it should be able to correct itself. To do this, I will write my code to manage as many different game scenarios as possible so that it will not crash when someone is playing it.
-
-#### Aims
-
-* The game doesn't crash
-* The game does not contain any bugs that damage the user experience
+My solution should run into as few errors as possible when the player is playing the game. If one does occur my game should be able to handle it appropriately. To prevent errors, I will test my game using unit testing which is an effective way of testing and debugging that focus on clearing each module at a time instead of testing as a whole.
 
 ### Easy To Learn
 
-The solution should be easy to use and not be over complicated. To do this, I will create simple controls for the game. I will make sure that no more controls are added than are needed in order to keep them as simple as possible for the players.
-
-#### Aims
-
-* Create a list of controls for the game
-* Create an in-level guide that helps players learn how to play the game
+My game should be easy to learn in all aspects. This includes: controls, mechanics and goals. Easiness to learn of my solution is important as the game could be unenjoyable if the player does not know how to play the game or if they have to put too much effort into learning the game's mechanics. One way this could be achieved is by keeping the controls similar to that of other games and by making the mechanics realistic.
 
 ## Pseudocode for the Game
 
