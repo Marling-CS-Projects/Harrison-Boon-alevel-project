@@ -36,21 +36,51 @@ My game should be easy to learn in all aspects. This includes: controls, mechani
 
 ## Pseudocode for the Game
 
-### Pseudocode for game
-
-This is the basic layout of the object to store the details of the game. This will be what is rendered as it will inherit all important code for the scenes.
+### Pseudocode for main menu
 
 ```
-object Game
-    type: Phaser
-    parent: id of HTML element
-    width: width
-    height: height
-    physics: set up for physics
-    scenes: add all menus, levels and other scenes
-end object
+displayWelcomeScreen()
+showSaveScreen()
 
-render Game to HTML web page
+while not isSaveSelected
+    wait
+end while
+
+loadPlayerSave()
+displayHomeScreen()
+
+while not isLevelSelected
+    wait
+end while
+
+switch optionChosen
+    case "Join"
+        askForGameCode()
+    end case
+    case "Host"
+        displayOptionsMenu()
+        while not isMenuComplete
+            wait
+        end while
+        startNewServer()
+        displayLobbyMenu()
+        while not isMenuComplete
+            wait
+        end while
+        startGame()
+    end case
+    case "Upgrades & Cars"
+        displayShopMenu()
+        switch optionChosen
+            case "Buy"
+                displayCarsAvailable()
+            end case
+            case "Upgrade"
+                displayUpgradesAvailable()
+            end case
+        end switch
+    end case
+end switch
 ```
 
 ### Pseudocode for a level
