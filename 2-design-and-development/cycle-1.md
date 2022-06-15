@@ -51,6 +51,68 @@ end function
 
 ### Outcome
 
+\[waffle]
+
+{% tabs %}
+{% tab title="/public/index.html" %}
+```markup
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="/dist/index.js"></script>
+  </body>
+</html>
+```
+{% endtab %}
+
+{% tab title="/src/index.ts" %}
+```typescript
+import * as THREE from "three";
+const speed = 0.05;
+
+const scene = new THREE.scene();
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight ); 
+document.body.appendChild( renderer.domElement );
+
+// Create the cube using a ThreeJS mesh
+const cubeMesh = new THREE.Mesh(
+  new THREE.boxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({color: 0xff0044})
+);
+
+scene.add(cubeMesh);
+
+// Move camera back to see the cube
+camera.position.z += 5;
+
+function animate() {
+  renderer.render(scene, camera)
+  
+  // Rotate the cube
+  cubeMesh.rotation.x += speed
+  cubeMesh.rotation.y += speed
+  
+  window.requestAnimationFrame(animate)
+};
+
+animate();
+```
+{% endtab %}
+{% endtabs %}
+
 ### Challenges
 
 Description of challenges
