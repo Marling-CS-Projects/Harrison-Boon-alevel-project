@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this first cycle I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will also set up basic collision detection and collision handling using cannon-es, a lightweight physics engine built for the web.
+In this first cycle I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will render multiple objects on the screen to confirm that ThreeJS can handle this (it will be necessary for my game).
 
 While most of the code written in this cycle may not end up staying in the final project, it will help to get me familiar with using the libraries and packages that I will need to use throughout the project. I am already proficient in TypeScript however I do not have experience with 3D rendering and physics libraries such as ThreeJS and cannon-es.&#x20;
 
@@ -18,16 +18,33 @@ While most of the code written in this cycle may not end up staying in the final
 
 ### Key Variables
 
-| Variable Name | Use                   |
-| ------------- | --------------------- |
-| foo           | does something useful |
+| Variable Name | Use                                                                                       |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| cubeMesh      | Stores properties of the cube and allows it to be manipulated.                            |
+| speed         | A constant that represents the speed at which I want the cube to rotate.                  |
+| scene         | The ThreeJS scene is where all of the objects to be rendered are stored.                  |
+| camera        | The ThreeJS camera provides a viewpoint in order for the user to be able to see the game. |
+| renderer      | The ThreeJS renderer is used to render 3D objects to the DOM element.                     |
 
 ### Pseudocode
 
 ```
-procedure do_something
-    
-end procedure
+speed := 5
+scene := createThreeJSScene()
+camera := createThreeJSCamera(cameraSettings)
+renderer := createThreeJSRenderer(rendererSettings)
+
+cubeMesh := createBoxMesh(boxSettings)
+addMeshToScene(scene, cubeMesh)
+setPosition(camera, 0,0,5)
+
+function animate():
+    requestAnimationFrame(animate)
+    incrementXRotation(cubeMesh, speed)
+    incrementYRotation(cubeMesh, speed)
+    renderer.render(scene, camera)
+end funtion
+
 ```
 
 ## Development
