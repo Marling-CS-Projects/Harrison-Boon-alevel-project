@@ -83,36 +83,48 @@ switch optionChosen
 end switch
 ```
 
-### Pseudocode for a level
+### Pseudocode for a main-world level
 
-This shows the basic layout of code for a Phaser scene. It shows where each task will be executed.
+This code will need to be run when  the player loads into their main-world level
 
 ```
-class Level extends Phaser Scene
+requestSeedFromServer()
+generateProceduralTerrain()
+createPlayerCar()
 
-    procedure preload
-        load all sprites and music
-    end procedure
+if isServerMultiplayer:
+    requestOtherPlayers()
+    createOtherPlayersCars()
+end if
+
+generateClouds()
+generateStructures()
+generateBiomeData()
+
+function renderLoop():
+    checkKeyPress()
+    if isServerMultiplayer:
+        requestMultiplayerCarData()
+        sendMultiplayerCarData()
+    end if
     
-    procedure create
-        start music
-        draw background
-        create players
-        create platforms
-        create puzzle elements
-        create enemies
-        create obstacles
-        create finishing position
-        create key bindings
-    end procedure
+    switch keyDown:
+        case "w" or "UP ARROW":
+            playerCar.applyEngineForce()
+        end case
+        case "s" or "DOWN ARROW":
+            playerCar.applyBrakeForce()
+        end case
+        case "a" or "LEFT ARROW":
+            playerCar.turnWheels(left)
+        end case
+        case "d" or "RIGHT ARROW":
+            playerCar.turnWheels(right)
+        end case
+    end switch
     
-    procedure update
-        handle key presses
-        move player
-        move interactable objects
-        update animations
-        check if player at exit
-    end procedure
-    
-end class
+    updateCarMovements()
+    renderAllCars()
+end function
 ```
+
