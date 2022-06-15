@@ -8,10 +8,11 @@ While most of the code written in this cycle may not end up staying in the final
 
 ### Objectives
 
-\[describe the cycle]
-
-* [x] Do a thing
-* [x] Do another thing
+* [x] Set up an environment in Visual Studio Code with support for TypeScript
+* [x] Set up the Gtihub repository to store the code in.
+* [x] Create a simple Snowpack project.
+* [x] Add ThreeJS to the project and render a cube.
+* [x] Make the cube spin.
 
 ### Usability Features
 
