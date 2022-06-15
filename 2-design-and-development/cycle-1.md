@@ -1,23 +1,25 @@
-# 2.2.1 Cycle 1
+# 2.2.1 Cycle 1 - Getting Started
 
-## Design
+## Overview
+
+In this first cycle I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will also set up basic collision detection and collision handling using cannon-es, a lightweight physics engine built for the web.
+
+While most of the code written in this cycle may not end up staying in the final project, it will help to get me familiar with using the libraries and packages that I will need to use throughout the project. I am already proficient in TypeScript however I do not have experience with 3D rendering and physics libraries such as ThreeJS and cannon-es.&#x20;
 
 ### Objectives
 
-[describe the cycle]
+\[describe the cycle]
 
 * [x] Do a thing
 * [x] Do another thing
 
 ### Usability Features
 
-
 ### Key Variables
 
-| Variable Name            | Use                                                                                                          |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| foo                       | does something useful |
-
+| Variable Name | Use                   |
+| ------------- | --------------------- |
+| foo           | does something useful |
 
 ### Pseudocode
 
@@ -25,13 +27,11 @@
 procedure do_something
     
 end procedure
-
 ```
 
 ## Development
 
 ### Outcome
-
 
 ### Challenges
 
@@ -43,10 +43,9 @@ Evidence for testing
 
 ### Tests
 
-| Test | Instructions                         | What I expect                                      | What actually happens | Pass/Fail |
-| ---- | ------------------------------------ | -------------------------------------------------- | --------------------- | --------- |
-| 1    | Run code                             | Thing happens        | As expected           | Pass      |
+| Test | Instructions  | What I expect     | What actually happens | Pass/Fail |
+| ---- | ------------- | ----------------- | --------------------- | --------- |
+| 1    | Run code      | Thing happens     | As expected           | Pass      |
 | 2    | Press buttons | Something happens | As expected           | Pass      |
 
 ### Evidence
-
