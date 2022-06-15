@@ -51,7 +51,7 @@ end function
 
 ### Outcome
 
-\[waffle]
+In `/src/index.ts` I create the necessary ThreeJS variables and also a function `animate` that will run every frame and update things such as the cube's movement while also updating the on-screen rendering according to where the objects and camera are in the ThreeJS scene. The ThreeJS renderer renders objects onto the HTML canvas in `/public/index.html`
 
 {% tabs %}
 {% tab title="/public/index.html" %}
