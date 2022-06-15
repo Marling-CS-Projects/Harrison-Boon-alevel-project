@@ -43,7 +43,7 @@ function animate():
     incrementXRotation(cubeMesh, speed)
     incrementYRotation(cubeMesh, speed)
     renderer.render(scene, camera)
-end funtion
+end function
 
 ```
 
