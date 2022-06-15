@@ -102,12 +102,12 @@ generateStructures()
 generateBiomeData()
 
 function renderLoop():
-    checkKeyPress()
     if isServerMultiplayer:
         requestMultiplayerCarData()
         sendMultiplayerCarData()
     end if
     
+    checkKeyPress()
     switch keyDown:
         case "w" or "UP ARROW":
             playerCar.applyEngineForce()
@@ -128,3 +128,43 @@ function renderLoop():
 end function
 ```
 
+### &#x20;Pseudocode for a circuit level
+
+```
+importLevelMap()
+renderLevelMap()
+createPlayerCar()
+
+if isServerMultiplayer:
+    requestOtherPlayers()
+    createOtherPlayersCars()
+end if
+
+generateClouds()
+
+function renderLoop():
+    if isServerMultiplayer:
+        requestMultiplayerCarData()
+        sendMultiplayerCarData()
+    end if
+    
+    checkKeyPress()
+    switch keyDown:
+        case "w" or "UP ARROW":
+            playerCar.applyEngineForce()
+        end case
+        case "s" or "DOWN ARROW":
+            playerCar.applyBrakeForce()
+        end case
+        case "a" or "LEFT ARROW":
+            playerCar.turnWheels(left)
+        end case
+        case "d" or "RIGHT ARROW":
+            playerCar.turnWheels(right)
+        end case
+    end switch
+    
+    updateCarMovements()
+    renderAllCars()
+end function
+```
