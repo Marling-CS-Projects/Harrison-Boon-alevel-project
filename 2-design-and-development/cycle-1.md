@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this first cycle I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will render multiple objects on the screen to confirm that ThreeJS can handle this (it will be necessary for my game).
+In this first cycle I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will also add lighting to the scene to test out features that I will need later in the project.
 
 While most of the code written in this cycle may not end up staying in the final project, it will help to get me familiar with using the libraries and packages that I will need to use throughout the project. I am already proficient in TypeScript however I do not have experience with 3D rendering and physics libraries such as ThreeJS and cannon-es.&#x20;
 
@@ -12,6 +12,7 @@ While most of the code written in this cycle may not end up staying in the final
 * [x] Set up the Gtihub repository to store the code in.
 * [x] Create a simple Snowpack project.
 * [x] Add ThreeJS to the project and render a cube.
+* [x] Add ThreeJS lighting so that the cube is visible and textured.
 * [x] Make the cube spin.
 
 ### Usability Features
@@ -95,7 +96,7 @@ document.body.appendChild( renderer.domElement );
 // Create the cube using a ThreeJS mesh
 const cubeMesh = new THREE.Mesh(
   new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshBasicMaterial({color: 0xff0044})
+  new THREE.MeshLambertMaterial({color: 0xff0044})
 );
 
 scene.add(cubeMesh);
@@ -122,7 +123,7 @@ animate();
 
 ### Challenges
 
-Description of challenges
+One challenge of this cycle is that all of my TypeScript code will be inside of the same file. This can make readability more difficult and overall the code will be harder to follow for human readers. To help cope with this challenge in the future I will split my code up into multiple sections and distribute them across separate files.&#x20;
 
 ## Testing
 
@@ -136,3 +137,7 @@ Evidence for testing
 | 2    | Press buttons | Something happens | As expected           | Pass      |
 
 ### Evidence
+
+![](<../.gitbook/assets/image (7).png>)
+
+![Cube in motion](<../.gitbook/assets/image (8).png>)
