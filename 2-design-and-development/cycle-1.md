@@ -127,17 +127,15 @@ One challenge of this cycle is that all of my TypeScript code will be inside of 
 
 ## Testing
 
-Evidence for testing
-
 ### Tests
 
-| Test | Instructions  | What I expect     | What actually happens | Pass/Fail |
-| ---- | ------------- | ----------------- | --------------------- | --------- |
-| 1    | Run code      | Thing happens     | As expected           | Pass      |
-| 2    | Press buttons | Something happens | As expected           | Pass      |
+| Test | Instructions      | What I expect                               | What actually happens | Pass/Fail |
+| ---- | ----------------- | ------------------------------------------- | --------------------- | --------- |
+| 1    | Run code          | Snowpack server starts up                   | As expected           | Pass      |
+| 2    | Go to the website | Spinning red cube will appear on the screen | As expected           | Pass      |
 
 ### Evidence
 
-![](<../.gitbook/assets/image (7).png>)
+![](<../.gitbook/assets/image (6).png>)
 
-![Cube in motion](<../.gitbook/assets/image (8).png>)
+![Cube in motion](<../.gitbook/assets/image (7).png>)
