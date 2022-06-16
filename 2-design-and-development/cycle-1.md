@@ -18,13 +18,14 @@ While most of the code written in this cycle may not end up staying in the final
 
 ### Key Variables
 
-| Variable Name | Use                                                                                       |
-| ------------- | ----------------------------------------------------------------------------------------- |
-| cubeMesh      | Stores properties of the cube and allows it to be manipulated.                            |
-| speed         | A constant that represents the speed at which I want the cube to rotate.                  |
-| scene         | The ThreeJS scene is where all of the objects to be rendered are stored.                  |
-| camera        | The ThreeJS camera provides a viewpoint in order for the user to be able to see the game. |
-| renderer      | The ThreeJS renderer is used to render 3D objects to the DOM element.                     |
+| Variable Name                   | Use                                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------------------- |
+| cubeMesh                        | Stores properties of the cube and allows it to be manipulated.                            |
+| speed                           | A constant that represents the speed at which I want the cube to rotate.                  |
+| scene                           | The ThreeJS scene is where all of the objects to be rendered are stored.                  |
+| camera                          | The ThreeJS camera provides a viewpoint in order for the user to be able to see the game. |
+| renderer                        | The ThreeJS renderer is used to render 3D objects to the DOM element.                     |
+| ambientLight & directionalLight | Both of these variables are used to generate lighting in the ThreeJS scene.               |
 
 ### Pseudocode
 
