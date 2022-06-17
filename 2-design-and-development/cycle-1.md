@@ -37,7 +37,11 @@ camera := createThreeJSCamera(cameraSettings)
 renderer := createThreeJSRenderer(rendererSettings)
 
 cubeMesh := createBoxMesh(boxSettings)
+ambientLight := createAmbientLight(ambientLightSettings)
+directionalLight := createDirectionalLight(directionalLightSettings)
 addMeshToScene(scene, cubeMesh)
+addLightToScene(scene, ambientLight)
+addLightToScene(scene, directionalLight)
 setPosition(camera, 0,0,5)
 
 function animate():
