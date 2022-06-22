@@ -77,6 +77,7 @@ In `/src/index.ts` I create the necessary ThreeJS variables and also a function 
 
 {% tab title="/src/index.ts" %}
 ```typescript
+import "./style.css";
 import * as THREE from "three";
 const speed = 0.05;
 
@@ -118,8 +119,16 @@ function animate() {
   
   window.requestAnimationFrame(animate);
 };
-
 animate();
+```
+{% endtab %}
+
+{% tab title="/src/style.css" %}
+```css
+* {
+  margin: 0;
+  padding: 0;
+}
 ```
 {% endtab %}
 {% endtabs %}
