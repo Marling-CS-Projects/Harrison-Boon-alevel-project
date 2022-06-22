@@ -68,7 +68,6 @@ In `/src/index.ts` I create the necessary ThreeJS variables and also a function 
     <meta charset="utf-8" />
   </head>
   <body>
-    <canvas class="webgl"></canvas>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script type="module" src="/dist/index.js"></script>
   </body>
