@@ -18,6 +18,7 @@
 * [2.1 Design Frame](2-design-and-development/systems-diagram.md)
 * [2.2.1 Cycle 1 - Getting Started](2-design-and-development/cycle-1.md)
 * [2.2.2 Cycle 2 - Adding physics](design-and-development/2.2.2-cycle-2.md)
+* [2.2.3 Cycle 3 - Terrain generation](design-and-development/2.2.3-cycle-3-terrain-generation.md)
 
 ## 3 Testing <a href="#testing" id="testing"></a>
 
