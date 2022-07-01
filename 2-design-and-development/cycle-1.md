@@ -135,7 +135,9 @@ animate();
 
 ### Challenges
 
-One challenge of this cycle is that all of my TypeScript code will be inside of the same file. This can make readability more difficult and overall the code will be harder to follow for human readers. To help cope with this challenge in the future I will split my code up into multiple sections and distribute them across separate files.&#x20;
+One challenge of this cycle is that all of my TypeScript code will be inside of the same file. This can make readability more difficult and overall the code will be harder to follow for human readers. To help cope with this challenge in the future I will split my code up into multiple sections and distribute them across separate files.
+
+I have also never worked with ThreeJS before. This means that I will need to research a lot about the library before I can use it to render complex objects like I am planning to. ThreeJS also has no efficient or easy way to implement physics simulations with collision detection or gravity. In order to simulate physics like I want to in the full game, I will have to use a different library that can deal with collision detection and gravity simulation.
 
 ## Testing
 
