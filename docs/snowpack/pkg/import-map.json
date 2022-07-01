@@ -1,6 +1,7 @@
 {
   "imports": {
     "cannon-es": "./cannon-es.js",
+    "simplex-noise": "./simplex-noise.js",
     "three": "./three.js",
     "three/examples/jsm/controls/OrbitControls": "./three/examples/jsm/controls/OrbitControls.js"
   }
