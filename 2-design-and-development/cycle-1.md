@@ -2,9 +2,9 @@
 
 ## Overview
 
-In this first cycle I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will also add lighting to the scene to test out features that I will need later in the project.
+In this first cycle, I aim to create a TypeScript project using Snowpack that can be used to render objects on the screen using ThreeJS. I will also add lighting to the scene to test out features that I will need later in the project.
 
-While most of the code written in this cycle may not end up staying in the final project, it will help to get me familiar with using the libraries and packages that I will need to use throughout the project. I am already proficient in TypeScript however I do not have experience with 3D rendering and physics libraries such as ThreeJS and cannon-es.&#x20;
+While most of the code written in this cycle may not end up staying in the final project, it will help to get me familiar with using the libraries and packages that I will need to use throughout the project. I am already proficient in TypeScript however I do not have experience with 3D rendering and physics libraries such as ThreeJS and CannonES.&#x20;
 
 ### Objectives
 
@@ -57,7 +57,9 @@ end function
 
 ### Outcome
 
-In `/src/index.ts` I create the necessary ThreeJS variables and also a function `animate` that will run every frame and update things such as the cube's movement while also updating the on-screen rendering according to where the objects and camera are in the ThreeJS scene. The ThreeJS renderer renders objects onto the HTML canvas in `/public/index.html`
+`/src/index.ts` is the main file that will be run when the SnowPack website is compiled. Later in my project, I may want to start branching my code out to different files and directories so that it is easier to manage, but for now, I will write all of my code directly into the main file.
+
+Lines 5-15 are simply setting up ThreeJS variables such as the renderer and scene. The renderer is what makes it possible to draw shapes on the player's screen - It uses a html canvas object. Lines 17-29 are adding objects to the scene such as the lighting and the cube that will spin. The `animate` function, starting on line 34, is responsible for pushing the scene's information to the renderer and for updating objects in the scene. This function is typically run every 1/60 of a second (this produces a framerate of 60 fps).
 
 {% tabs %}
 {% tab title="/public/index.html" %}
@@ -81,6 +83,10 @@ import "./style.css";
 import * as THREE from "three";
 const speed = 0.05;
 
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight ); 
+document.body.appendChild( renderer.domElement );
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -92,10 +98,6 @@ const camera = new THREE.PerspectiveCamera(
 // Create lighting for the scene
 const ambientLighting = new THREE.AmbientLight(0xaaaaaa);
 const directionalLighting = new THREE.DirectionalLight(0xdddddd);
-
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight ); 
-document.body.appendChild( renderer.domElement );
 
 // Create the cube using a ThreeJS mesh
 const cubeMesh = new THREE.Mesh(
@@ -135,9 +137,9 @@ animate();
 
 ### Challenges
 
-One challenge of this cycle is that all of my TypeScript code will be inside of the same file. This can make readability more difficult and overall the code will be harder to follow for human readers. To help cope with this challenge in the future I will split my code up into multiple sections and distribute them across separate files.
+One challenge of this cycle is that all of my TypeScript code will be inside the same file. This can make readability more difficult and overall the code will be harder to follow for human readers. To help cope with this challenge in the future I will split my code up into multiple sections and distribute them across separate files.
 
-I have also never worked with ThreeJS before. This means that I will need to research a lot about the library before I can use it to render complex objects like I am planning to. ThreeJS also has no efficient or easy way to implement physics simulations with collision detection or gravity. In order to simulate physics like I want to in the full game, I will have to use a different library that can deal with collision detection and gravity simulation.
+I have also never worked with ThreeJS before. This means that I will need to research a lot about the library before I can use it to render complex objects like I am planning to. ThreeJS also has no efficient or easy way to implement physics simulations with collision detection or gravity. In order to simulate physics like I want to in the complete game, I will have to use a different library that can deal with collision detection and gravity simulation.
 
 ## Testing
 

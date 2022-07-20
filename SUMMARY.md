@@ -19,7 +19,7 @@
 * [2.2.1 Cycle 1 - Getting Started](2-design-and-development/cycle-1.md)
 * [2.2.2 Cycle 2 - Adding physics](design-and-development/2.2.2-cycle-2.md)
 * [2.2.3 Cycle 3 - Terrain generation](design-and-development/2.2.3-cycle-3-terrain-generation.md)
-* [2.2.4 Cycle 4 - Template](design-and-development/2.2.4-cycle-4-template.md)
+* [2.2.4 Cycle 4 - Misc. fixes](design-and-development/2.2.4-cycle-4-misc.-fixes.md)
 * [2.2.x Cycle x - Template](design-and-development/2.2.x-cycle-x-template.md)
 
 ## 3 Testing <a href="#testing" id="testing"></a>
