@@ -18,8 +18,14 @@ const world = new CANNON.World({
 });
 const ambientLighting = new THREE.AmbientLight(11184810);
 const directionalLighting = new THREE.DirectionalLight(16777215);
-directionalLighting.position.set(-5, 5, 5);
+directionalLighting.position.set(0, 50, 0);
 directionalLighting.castShadow = true;
+directionalLighting.shadow.camera.top = 250;
+directionalLighting.shadow.camera.bottom = -250;
+directionalLighting.shadow.camera.left = -250;
+directionalLighting.shadow.camera.right = 250;
+directionalLighting.shadow.camera.far = 500;
+directionalLighting.shadow.mapSize = new THREE.Vector2(16384, 16384);
 camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
 const sphereMaterial = new CANNON.Material();
