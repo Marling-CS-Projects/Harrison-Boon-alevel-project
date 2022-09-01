@@ -3,7 +3,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import * as CANNON from "cannon-es";
 import { terrainGenerate } from "./terrainGenerate";
-import { DirectionalLightHelper } from "three";
 
 const gravity = -9.8;
 
@@ -30,23 +29,24 @@ const world = new CANNON.World({
 
 const ambientLighting = new THREE.AmbientLight(0xaaaaaa);
 const directionalLighting = new THREE.DirectionalLight(0xffffff);
-directionalLighting.position.set(0, 50, 0);
+directionalLighting.position.set(400, 800, 600);
 directionalLighting.castShadow = true;
 directionalLighting.shadow.camera.top = 250;
 directionalLighting.shadow.camera.bottom = -250;
 directionalLighting.shadow.camera.left = -250;
 directionalLighting.shadow.camera.right = 250;
-directionalLighting.shadow.camera.far = 500;
+directionalLighting.shadow.camera.far = 5000;
 directionalLighting.shadow.mapSize = new THREE.Vector2(16384, 16384);
+directionalLighting.shadow.bias = 0.0001;
 camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
 
 // Create a simulated sphere
-const sphereMaterial = new CANNON.Material();
+const sphereMaterial = new CANNON.Material("sphere");
 const sphereBody = new CANNON.Body({
   mass: 1,
   material: sphereMaterial,
-  position: new CANNON.Vec3(0, 20, 0),
+  position: new CANNON.Vec3(0, 40, 0),
 });
 sphereBody.addShape(new CANNON.Sphere(0.5));
 
@@ -64,12 +64,8 @@ controls.target.set(
   sphereMesh.position.z
 );
 
-// Create the simulated ground
-const groundMaterial = new CANNON.Material("ground");
-
-const { trimeshBody, planeGeometry, colours } = terrainGenerate(
-  Math.random().toString(),
-  groundMaterial
+const { trimeshBody, planeGeometry, colours, groundMaterial } = terrainGenerate(
+  Math.random().toString()
 );
 
 world.addBody(trimeshBody);
@@ -94,7 +90,7 @@ planeMesh.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
 const contactMaterial = new CANNON.ContactMaterial(
   groundMaterial,
   sphereMaterial,
-  { friction: 0.5 }
+  { friction: 0.2, restitution: 0.3 }
 );
 
 // Add all simulated bodies to the simulated world
@@ -111,6 +107,7 @@ const clock = new THREE.Clock();
 
 function animate() {
   renderer.render(scene, camera);
+  console.log(sphereBody.position.y);
 
   world.step(clock.getDelta());
 
@@ -133,6 +130,7 @@ function animate() {
     sphereBody.quaternion.z,
     sphereBody.quaternion.w
   );
+
   window.requestAnimationFrame(animate);
 }
 animate();
