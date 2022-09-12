@@ -35,9 +35,8 @@ directionalLighting.shadow.camera.top = 250;
 directionalLighting.shadow.camera.bottom = -250;
 directionalLighting.shadow.camera.left = -250;
 directionalLighting.shadow.camera.right = 250;
-directionalLighting.shadow.camera.far = 5000;
+directionalLighting.shadow.camera.far = 3000;
 directionalLighting.shadow.mapSize = new THREE.Vector2(16384, 16384);
-directionalLighting.shadow.bias = 0.0001;
 camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
 
@@ -107,16 +106,7 @@ const clock = new THREE.Clock();
 
 function animate() {
   renderer.render(scene, camera);
-  console.log(sphereBody.position.y);
-
   world.step(clock.getDelta());
-
-  // If the sphere is too far below the platform, teleport it above
-  if (sphereBody.position.y < -50) {
-    sphereBody.position = new CANNON.Vec3(0, 20, 0);
-    sphereBody.velocity = new CANNON.Vec3(0, 0, 0);
-    sphereBody.angularVelocity = new CANNON.Vec3(0, 0, 0);
-  }
 
   // Update the rendered sphere to the simulated sphere's position every frame
   sphereMesh.position.set(
