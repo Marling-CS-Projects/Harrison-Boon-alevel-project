@@ -18,21 +18,22 @@ const world = new CANNON.World({
 });
 const ambientLighting = new THREE.AmbientLight(11184810);
 const directionalLighting = new THREE.DirectionalLight(16777215);
-directionalLighting.position.set(0, 50, 0);
+directionalLighting.position.set(400, 800, 600);
 directionalLighting.castShadow = true;
 directionalLighting.shadow.camera.top = 250;
 directionalLighting.shadow.camera.bottom = -250;
 directionalLighting.shadow.camera.left = -250;
 directionalLighting.shadow.camera.right = 250;
-directionalLighting.shadow.camera.far = 500;
+directionalLighting.shadow.camera.far = 5e3;
 directionalLighting.shadow.mapSize = new THREE.Vector2(16384, 16384);
+directionalLighting.shadow.bias = 1e-4;
 camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
-const sphereMaterial = new CANNON.Material();
+const sphereMaterial = new CANNON.Material("sphere");
 const sphereBody = new CANNON.Body({
   mass: 1,
   material: sphereMaterial,
-  position: new CANNON.Vec3(0, 20, 0)
+  position: new CANNON.Vec3(0, 40, 0)
 });
 sphereBody.addShape(new CANNON.Sphere(0.5));
 const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(0.5, 64, 64), new THREE.MeshLambertMaterial({
@@ -40,8 +41,7 @@ const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(0.5, 64, 64), new THR
 }));
 sphereMesh.castShadow = true;
 controls.target.set(sphereMesh.position.x, sphereMesh.position.y, sphereMesh.position.z);
-const groundMaterial = new CANNON.Material("ground");
-const {trimeshBody, planeGeometry, colours} = terrainGenerate(Math.random().toString(), groundMaterial);
+const {trimeshBody, planeGeometry, colours, groundMaterial} = terrainGenerate(Math.random().toString());
 world.addBody(trimeshBody);
 const planeMaterial = new THREE.MeshPhongMaterial({
   vertexColors: true,
@@ -54,7 +54,7 @@ const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
 planeMesh.receiveShadow = true;
 planeMesh.castShadow = true;
 planeMesh.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
-const contactMaterial = new CANNON.ContactMaterial(groundMaterial, sphereMaterial, {friction: 0.5});
+const contactMaterial = new CANNON.ContactMaterial(groundMaterial, sphereMaterial, {friction: 0.2, restitution: 0.3});
 world.addBody(sphereBody);
 world.addContactMaterial(contactMaterial);
 scene.add(sphereMesh);
@@ -64,6 +64,7 @@ scene.add(planeMesh);
 const clock = new THREE.Clock();
 function animate() {
   renderer.render(scene, camera);
+  console.log(sphereBody.position.y);
   world.step(clock.getDelta());
   if (sphereBody.position.y < -50) {
     sphereBody.position = new CANNON.Vec3(0, 20, 0);
