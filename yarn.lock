@@ -55,6 +55,11 @@ cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+decoration@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/decoration/-/decoration-1.0.1.tgz#72c47e250e6783de2d30fa49c6defcbcea4f9106"
+  integrity sha512-Uz+yKZMfEQHerHhs3f3mXKhYJuR341lTBbiKkSv8QNKskla6JbL5Uw9HaCVIlX7M87WlUCW6wBAF7zugWq3osw==
+
 default-browser-id@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/default-browser-id/-/default-browser-id-2.0.0.tgz"
