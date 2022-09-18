@@ -2,11 +2,10 @@ import SimplexNoise from "../snowpack/pkg/simplex-noise.js";
 import * as THREE from "../snowpack/pkg/three.js";
 import * as CANNON from "../snowpack/pkg/cannon-es.js";
 export function terrainGenerate(seed) {
-  const simplex = new SimplexNoise(Math.random());
-  const colours = [];
+  const simplex = new SimplexNoise(seed);
   const segments = 51;
   const planeGeometry = new THREE.PlaneGeometry(500, 500, segments - 1, segments - 1);
-  const scale = 64;
+  const scale = 150;
   const groundMaterial = new CANNON.Material("groundMaterial");
   const trimeshBody = new CANNON.Body({mass: 0, material: groundMaterial});
   for (let i = 0; i < planeGeometry.attributes.position.count; i++) {
@@ -14,15 +13,6 @@ export function terrainGenerate(seed) {
     const y = planeGeometry.attributes.position.array[i * 3 + 1];
     const z = simplex.noise2D(x / scale, y / scale) * 20;
     planeGeometry.attributes.position.setZ(i, z);
-    if (z > 18) {
-      colours.push(1, 1, 1);
-    } else if (z > 5) {
-      colours.push(0.56, 0.54, 0.48);
-    } else if (z < -15) {
-      colours.push(0.501, 0.772, 0.87);
-    } else {
-      colours.push(0.56, 0.68, 0.166);
-    }
     if (i % segments == segments - 1) {
       continue;
     }
@@ -54,5 +44,5 @@ export function terrainGenerate(seed) {
     trimeshBody.addShape(trimesh2);
   }
   trimeshBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2);
-  return {trimeshBody, planeGeometry, colours, groundMaterial};
+  return {trimeshBody, planeGeometry, groundMaterial};
 }
