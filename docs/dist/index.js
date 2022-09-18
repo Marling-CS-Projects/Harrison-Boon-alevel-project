@@ -24,9 +24,8 @@ directionalLighting.shadow.camera.top = 250;
 directionalLighting.shadow.camera.bottom = -250;
 directionalLighting.shadow.camera.left = -250;
 directionalLighting.shadow.camera.right = 250;
-directionalLighting.shadow.camera.far = 5e3;
+directionalLighting.shadow.camera.far = 3e3;
 directionalLighting.shadow.mapSize = new THREE.Vector2(16384, 16384);
-directionalLighting.shadow.bias = 1e-4;
 camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
 const sphereMaterial = new CANNON.Material("sphere");
@@ -64,13 +63,7 @@ scene.add(planeMesh);
 const clock = new THREE.Clock();
 function animate() {
   renderer.render(scene, camera);
-  console.log(sphereBody.position.y);
   world.step(clock.getDelta());
-  if (sphereBody.position.y < -50) {
-    sphereBody.position = new CANNON.Vec3(0, 20, 0);
-    sphereBody.velocity = new CANNON.Vec3(0, 0, 0);
-    sphereBody.angularVelocity = new CANNON.Vec3(0, 0, 0);
-  }
   sphereMesh.position.set(sphereBody.position.x, sphereBody.position.y, sphereBody.position.z);
   sphereMesh.quaternion.set(sphereBody.quaternion.x, sphereBody.quaternion.y, sphereBody.quaternion.z, sphereBody.quaternion.w);
   window.requestAnimationFrame(animate);
