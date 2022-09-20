@@ -154,4 +154,4 @@ I have also never worked with ThreeJS before. This means that I will need to res
 
 ![](<../.gitbook/assets/image (6) (1).png>)
 
-![Cube in motion](<../.gitbook/assets/image (7) (2).png>)
+![Cube in motion](<../.gitbook/assets/image (7).png>)
