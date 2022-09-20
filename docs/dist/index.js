@@ -29,18 +29,6 @@ directionalLighting.shadow.camera.far = 3e3;
 directionalLighting.shadow.mapSize = new THREE.Vector2(16384, 16384);
 camera.position.set(5, 5, 5);
 camera.lookAt(0, 0, 0);
-const sphereMaterial = new CANNON.Material("sphere");
-const sphereBody = new CANNON.Body({
-  mass: 1,
-  material: sphereMaterial,
-  position: new CANNON.Vec3(0.5, 40, 0.5)
-});
-sphereBody.addShape(new CANNON.Sphere(0.5));
-const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(0.5, 64, 64), new THREE.MeshLambertMaterial({
-  color: 16711748
-}));
-sphereMesh.castShadow = true;
-controls.target.set(sphereMesh.position.x, sphereMesh.position.y, sphereMesh.position.z);
 const {
   vehicle,
   vehicleChassisBody,
@@ -49,8 +37,6 @@ const {
   wheelMeshes,
   wheelMaterial
 } = generateVehicle();
-scene.add(...wheelMeshes);
-scene.add(vehicleMesh);
 vehicle.addToWorld(world);
 const {trimeshBody, planeGeometry, groundMaterial} = terrainGenerate(Math.random().toString());
 world.addBody(trimeshBody);
@@ -65,9 +51,9 @@ planeMesh.receiveShadow = true;
 planeMesh.castShadow = true;
 planeMesh.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
 const contactMaterial = new CANNON.ContactMaterial(groundMaterial, wheelMaterial, {friction: 0.8, restitution: 0.05});
-world.addBody(sphereBody);
 world.addContactMaterial(contactMaterial);
-scene.add(sphereMesh);
+scene.add(...wheelMeshes);
+scene.add(vehicleMesh);
 scene.add(ambientLighting);
 scene.add(directionalLighting);
 scene.add(planeMesh);
@@ -129,8 +115,6 @@ document.addEventListener("keyup", (event) => {
 function animate() {
   renderer.render(scene, camera);
   world.step(clock.getDelta());
-  sphereMesh.position.set(sphereBody.position.x, sphereBody.position.y, sphereBody.position.z);
-  sphereMesh.quaternion.set(sphereBody.quaternion.x, sphereBody.quaternion.y, sphereBody.quaternion.z, sphereBody.quaternion.w);
   wheelMeshes.forEach((wheelMesh, i) => {
     wheelMesh.position.set(wheelBodies[i].position.x, wheelBodies[i].position.y, wheelBodies[i].position.z);
     wheelMesh.quaternion.set(wheelBodies[i].quaternion.x, wheelBodies[i].quaternion.y, wheelBodies[i].quaternion.z, wheelBodies[i].quaternion.w);
