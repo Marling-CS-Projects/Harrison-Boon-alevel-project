@@ -1,7 +1,6 @@
 import SimplexNoise from "simplex-noise";
 import * as THREE from "three";
 import * as CANNON from "cannon-es";
-
 export function terrainGenerate(seed: string) {
   const simplex = new SimplexNoise(seed);
   const segments = 51;
