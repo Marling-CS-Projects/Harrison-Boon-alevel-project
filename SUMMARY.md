@@ -1,6 +1,6 @@
 # Table of contents
 
-* [3D Multiplayer Racing Game](README.md)
+* [3D Driving Game](README.md)
 * [Reference List](reference-list.md)
 
 ## 1 Analysis <a href="#analysis" id="analysis"></a>
