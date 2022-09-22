@@ -3,10 +3,13 @@ import * as THREE from "three";
 
 export function generateVehicle() {
   const vehicleChassisBody = new CANNON.Body({
-    mass: 50,
+    mass: 12,
     position: new CANNON.Vec3(0, 50, 0),
   });
-  vehicleChassisBody.addShape(new CANNON.Box(new CANNON.Vec3(5, 0.5, 2)));
+  vehicleChassisBody.addShape(
+    new CANNON.Box(new CANNON.Vec3(5, 0.5, 2)),
+    new CANNON.Vec3(0, -300000, 0)
+  );
 
   const vehicleMaterial = new THREE.MeshLambertMaterial({ color: 0xeeeeee });
   const vehicleGeometry = new THREE.BoxGeometry(10, 1, 4);
@@ -18,7 +21,7 @@ export function generateVehicle() {
     chassisBody: vehicleChassisBody,
   });
 
-  const mass = 1;
+  const mass = 12;
   const axisWidth = 7;
   const wheelShape = new CANNON.Sphere(1.5);
   const wheelMaterial = new CANNON.Material("wheel");

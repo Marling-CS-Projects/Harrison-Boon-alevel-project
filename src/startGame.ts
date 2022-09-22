@@ -75,7 +75,7 @@ export function startGame() {
   const contactMaterial = new CANNON.ContactMaterial(
     groundMaterial,
     wheelMaterial,
-    { friction: 0.8, restitution: 0.05 }
+    { friction: 8, restitution: 0.05 }
   );
 
   // Add all simulated bodies to the simulated world
@@ -93,7 +93,7 @@ export function startGame() {
 
   document.addEventListener("keydown", (event) => {
     const maxSteerVal = Math.PI / 8;
-    const maxForce = 250;
+    const maxForce = 500;
 
     switch (event.key) {
       case "w":
@@ -104,10 +104,10 @@ export function startGame() {
 
       case "s":
       case "ArrowDown":
-        vehicle.setMotorSpeed(-maxForce / 4, 0);
-        vehicle.setMotorSpeed(maxForce / 4, 1);
-        vehicle.setMotorSpeed(-maxForce / 4, 2);
-        vehicle.setMotorSpeed(maxForce / 4, 3);
+        vehicle.setMotorSpeed(-maxForce / 8, 0);
+        vehicle.setMotorSpeed(maxForce / 8, 1);
+        vehicle.setMotorSpeed(-maxForce / 8, 2);
+        vehicle.setMotorSpeed(maxForce / 8, 3);
         break;
 
       case "a":
@@ -175,7 +175,7 @@ export function startGame() {
     });
     vehicleMesh.position.set(
       vehicleChassisBody.position.x,
-      vehicleChassisBody.position.y - 0.5,
+      vehicleChassisBody.position.y,
       vehicleChassisBody.position.z
     );
     vehicleMesh.quaternion.set(
