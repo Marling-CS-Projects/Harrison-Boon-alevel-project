@@ -51,7 +51,7 @@ export function startGame() {
   planeMesh.receiveShadow = true;
   planeMesh.castShadow = true;
   planeMesh.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
-  const contactMaterial = new CANNON.ContactMaterial(groundMaterial, wheelMaterial, {friction: 0.8, restitution: 0.05});
+  const contactMaterial = new CANNON.ContactMaterial(groundMaterial, wheelMaterial, {friction: 8, restitution: 0.05});
   world.addContactMaterial(contactMaterial);
   scene.add(...wheelMeshes);
   scene.add(vehicleMesh);
@@ -61,7 +61,7 @@ export function startGame() {
   const clock = new THREE.Clock();
   document.addEventListener("keydown", (event) => {
     const maxSteerVal = Math.PI / 8;
-    const maxForce = 250;
+    const maxForce = 500;
     switch (event.key) {
       case "w":
       case "ArrowUp":
@@ -70,10 +70,10 @@ export function startGame() {
         break;
       case "s":
       case "ArrowDown":
-        vehicle.setMotorSpeed(-maxForce / 4, 0);
-        vehicle.setMotorSpeed(maxForce / 4, 1);
-        vehicle.setMotorSpeed(-maxForce / 4, 2);
-        vehicle.setMotorSpeed(maxForce / 4, 3);
+        vehicle.setMotorSpeed(-maxForce / 8, 0);
+        vehicle.setMotorSpeed(maxForce / 8, 1);
+        vehicle.setMotorSpeed(-maxForce / 8, 2);
+        vehicle.setMotorSpeed(maxForce / 8, 3);
         break;
       case "a":
       case "ArrowLeft":
@@ -120,7 +120,7 @@ export function startGame() {
       wheelMesh.position.set(wheelBodies[i].position.x, wheelBodies[i].position.y, wheelBodies[i].position.z);
       wheelMesh.quaternion.set(wheelBodies[i].quaternion.x, wheelBodies[i].quaternion.y, wheelBodies[i].quaternion.z, wheelBodies[i].quaternion.w);
     });
-    vehicleMesh.position.set(vehicleChassisBody.position.x, vehicleChassisBody.position.y - 0.5, vehicleChassisBody.position.z);
+    vehicleMesh.position.set(vehicleChassisBody.position.x, vehicleChassisBody.position.y, vehicleChassisBody.position.z);
     vehicleMesh.quaternion.set(vehicleChassisBody.quaternion.x, vehicleChassisBody.quaternion.y, vehicleChassisBody.quaternion.z, vehicleChassisBody.quaternion.w);
     window.requestAnimationFrame(animate);
   }
