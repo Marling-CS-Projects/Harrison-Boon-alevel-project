@@ -61,7 +61,7 @@ export function startGame() {
   const clock = new THREE.Clock();
   document.addEventListener("keydown", (event) => {
     const maxSteerVal = Math.PI / 8;
-    const maxForce = 500;
+    const maxForce = 800;
     switch (event.key) {
       case "w":
       case "ArrowUp":
