@@ -5,11 +5,11 @@ document.getElementById("start")?.addEventListener("click", () => {
   document.getElementById("start").classList.add("small");
   setTimeout(() => startGame(), 1);
 });
-document.getElementById("settings")?.addEventListener("click", () => {
-  document.getElementById("settings-menu")?.classList.remove("hide");
+document.getElementById("controls")?.addEventListener("click", () => {
+  document.getElementById("controls-menu")?.classList.remove("hide");
 });
 document.addEventListener("keydown", (e) => {
   if (e.key == "Escape") {
-    document.getElementById("settings-menu")?.classList.add("hide");
+    document.getElementById("controls-menu")?.classList.add("hide");
   }
 });
