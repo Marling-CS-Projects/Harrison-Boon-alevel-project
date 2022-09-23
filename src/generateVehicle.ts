@@ -3,7 +3,7 @@ import * as THREE from "three";
 
 export function generateVehicle() {
   const vehicleChassisBody = new CANNON.Body({
-    mass: 12,
+    mass: 25,
     position: new CANNON.Vec3(0, 50, 0),
   });
   vehicleChassisBody.addShape(
@@ -21,7 +21,7 @@ export function generateVehicle() {
     chassisBody: vehicleChassisBody,
   });
 
-  const mass = 12;
+  const mass = 25;
   const axisWidth = 7;
   const wheelShape = new CANNON.Sphere(1.5);
   const wheelMaterial = new CANNON.Material("wheel");
