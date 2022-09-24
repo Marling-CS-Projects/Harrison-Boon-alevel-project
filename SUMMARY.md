@@ -22,6 +22,8 @@
 * [2.2.4 Cycle 4 - Misc. fixes](design-and-development/2.2.4-cycle-4-misc.-fixes.md)
 * [2.2.5 Cycle 5 - Adding a vehicle](design-and-development/2.2.5-cycle-5-adding-a-vehicle.md)
 * [2.2.6 Cycle 6 - Adding a menu & GUI](design-and-development/2.2.6-cycle-6-adding-a-menu.md)
+* [2.2.7 Cycle 7 - Adding objectives](design-and-development/2.2.7-cycle-7-adding-objectives.md)
+* [Untitled](design-and-development/untitled.md)
 
 ## 3 Testing <a href="#testing" id="testing"></a>
 
