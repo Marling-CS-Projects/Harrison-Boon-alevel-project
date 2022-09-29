@@ -3,6 +3,8 @@ import * as CANNON from "cannon-es";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { terrainGenerate } from "./terrainGenerate";
 import { generateVehicle } from "./generateVehicle";
+import { spawnPoints } from "./spawnPoints";
+import { detectCollision } from "./detectCollision";
 
 export function startGame() {
   document.getElementById("menu")?.classList.add("hide");
@@ -52,6 +54,7 @@ export function startGame() {
   } = generateVehicle();
 
   vehicle.addToWorld(world);
+  world.addBody(vehicleChassisBody);
 
   const { trimeshBody, planeGeometry, groundMaterial } = terrainGenerate(
     Math.random().toString()
@@ -70,6 +73,11 @@ export function startGame() {
   planeMesh.receiveShadow = true;
   planeMesh.castShadow = true;
   planeMesh.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
+
+  const { points } = spawnPoints(5, planeGeometry);
+  points.forEach((point) => {
+    scene.add(point);
+  });
 
   // Describe how the sphere interacts with the plane
   const contactMaterial = new CANNON.ContactMaterial(
@@ -184,6 +192,15 @@ export function startGame() {
       vehicleChassisBody.quaternion.z,
       vehicleChassisBody.quaternion.w
     );
+    const result = detectCollision(points, vehicleMesh);
+    if (result) {
+      scene.remove(result);
+      points.splice(points.indexOf(result), 1);
+    }
+    if (points.length == 0) {
+      // end game
+    }
+
     window.requestAnimationFrame(animate);
   }
   animate();
