@@ -3,6 +3,8 @@ import * as CANNON from "../snowpack/pkg/cannon-es.js";
 import {OrbitControls} from "../snowpack/pkg/three/examples/jsm/controls/OrbitControls.js";
 import {terrainGenerate} from "./terrainGenerate.js";
 import {generateVehicle} from "./generateVehicle.js";
+import {spawnPoints} from "./spawnPoints.js";
+import {detectCollision} from "./detectCollision.js";
 export function startGame() {
   document.getElementById("menu")?.classList.add("hide");
   const gravity = -15;
@@ -39,6 +41,7 @@ export function startGame() {
     wheelMaterial
   } = generateVehicle();
   vehicle.addToWorld(world);
+  world.addBody(vehicleChassisBody);
   const {trimeshBody, planeGeometry, groundMaterial} = terrainGenerate(Math.random().toString());
   world.addBody(trimeshBody);
   const planeMaterial = new THREE.MeshPhongMaterial({
@@ -51,6 +54,10 @@ export function startGame() {
   planeMesh.receiveShadow = true;
   planeMesh.castShadow = true;
   planeMesh.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
+  const {points} = spawnPoints(5, planeGeometry);
+  points.forEach((point) => {
+    scene.add(point);
+  });
   const contactMaterial = new CANNON.ContactMaterial(groundMaterial, wheelMaterial, {friction: 8, restitution: 0.05});
   world.addContactMaterial(contactMaterial);
   scene.add(...wheelMeshes);
@@ -122,6 +129,13 @@ export function startGame() {
     });
     vehicleMesh.position.set(vehicleChassisBody.position.x, vehicleChassisBody.position.y, vehicleChassisBody.position.z);
     vehicleMesh.quaternion.set(vehicleChassisBody.quaternion.x, vehicleChassisBody.quaternion.y, vehicleChassisBody.quaternion.z, vehicleChassisBody.quaternion.w);
+    const result = detectCollision(points, vehicleMesh);
+    if (result) {
+      scene.remove(result);
+      points.splice(points.indexOf(result), 1);
+    }
+    if (points.length == 0) {
+    }
     window.requestAnimationFrame(animate);
   }
   animate();
