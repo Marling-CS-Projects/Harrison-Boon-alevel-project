@@ -2,7 +2,7 @@ import * as CANNON from "../snowpack/pkg/cannon-es.js";
 import * as THREE from "../snowpack/pkg/three.js";
 export function generateVehicle() {
   const vehicleChassisBody = new CANNON.Body({
-    mass: 12,
+    mass: 25,
     position: new CANNON.Vec3(0, 50, 0)
   });
   vehicleChassisBody.addShape(new CANNON.Box(new CANNON.Vec3(5, 0.5, 2)), new CANNON.Vec3(0, -3e5, 0));
@@ -14,7 +14,7 @@ export function generateVehicle() {
   const vehicle = new CANNON.RigidVehicle({
     chassisBody: vehicleChassisBody
   });
-  const mass = 12;
+  const mass = 25;
   const axisWidth = 7;
   const wheelShape = new CANNON.Sphere(1.5);
   const wheelMaterial = new CANNON.Material("wheel");
