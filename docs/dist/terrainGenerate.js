@@ -11,20 +11,20 @@ export function terrainGenerate(seed) {
   for (let i = 0; i < planeGeometry.attributes.position.count; i++) {
     const x = planeGeometry.attributes.position.array[i * 3];
     const y = planeGeometry.attributes.position.array[i * 3 + 1];
-    const z = simplex.noise2D(x / scale, y / scale) * 20;
+    const z = simplex.noise2D(x / scale, y / scale) * 10;
     planeGeometry.attributes.position.setZ(i, z);
     if (i % segments == segments - 1) {
       continue;
     }
     const nextX1 = planeGeometry.attributes.position.array[(i + 1) * 3];
     const nextY1 = planeGeometry.attributes.position.array[(i + 1) * 3 + 1];
-    const nextZ1 = simplex.noise2D(nextX1 / scale, nextY1 / scale) * 20;
+    const nextZ1 = simplex.noise2D(nextX1 / scale, nextY1 / scale) * 10;
     const nextX2 = planeGeometry.attributes.position.array[(i + segments) * 3];
     const nextY2 = planeGeometry.attributes.position.array[(i + segments) * 3 + 1];
-    const nextZ2 = simplex.noise2D(nextX2 / scale, nextY2 / scale) * 20;
+    const nextZ2 = simplex.noise2D(nextX2 / scale, nextY2 / scale) * 10;
     const nextX3 = planeGeometry.attributes.position.array[(i + 1 + segments) * 3];
     const nextY3 = planeGeometry.attributes.position.array[(i + 1 + segments) * 3 + 1];
-    const nextZ3 = simplex.noise2D(nextX3 / scale, nextY3 / scale) * 20;
+    const nextZ3 = simplex.noise2D(nextX3 / scale, nextY3 / scale) * 10;
     const vertices1 = [x, y, z, nextX1, nextY1, nextZ1, nextX2, nextY2, nextZ2];
     const indices = [0, 1, 2];
     const trimesh1 = new CANNON.Trimesh(vertices1, indices);
