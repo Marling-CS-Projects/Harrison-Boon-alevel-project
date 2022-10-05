@@ -1,5 +1,4 @@
 import type * as THREE from "three";
-import type * as CANNON from "cannon-es";
 export function detectCollision(points: THREE.Mesh[], vehicleMesh: THREE.Mesh) {
   for (let i = 0; i < points.length; i++) {
     const point = points[i];
