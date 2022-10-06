@@ -24,7 +24,6 @@
 * [2.2.6 Cycle 6 - Adding a menu & GUI](design-and-development/2.2.6-cycle-6-adding-a-menu.md)
 * [2.2.7 Cycle 7 - Adding objectives](design-and-development/2.2.7-cycle-7-adding-objectives.md)
 * [2.2.8 Cycle 8 - Adding a finish to the game](design-and-development/2.2.8-cycle-8-adding-a-finish-to-the-game.md)
-* [Untitled](design-and-development/untitled.md)
 
 ## 3 Testing <a href="#testing" id="testing"></a>
 
