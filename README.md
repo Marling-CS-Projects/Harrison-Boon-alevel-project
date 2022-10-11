@@ -2,9 +2,9 @@
 description: Computer Science H446-03
 ---
 
-# 3D Multiplayer Puzzle Platformer Game
+# 3D Driving Game
 
-\[Insert fun image here]
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 |                  |                |
 | ---------------- | -------------- |
