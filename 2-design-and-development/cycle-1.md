@@ -152,6 +152,6 @@ I have also never worked with ThreeJS before. This means that I will need to res
 
 ### Evidence
 
-![](<../.gitbook/assets/image (6) (1).png>)
+![](<../.gitbook/assets/image (6) (1) (1).png>)
 
 ![Cube in motion](<../.gitbook/assets/image (7).png>)
