@@ -4,7 +4,7 @@ description: Computer Science H446-03
 
 # 3D Driving Game
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 |                  |                |
 | ---------------- | -------------- |
