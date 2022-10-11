@@ -29,7 +29,6 @@
 
 * [3.1 Testing for Function and Robustness](3-testing/3.1-robustness.md)
 * [3.2 Usability Testing](3-testing/3.2-usability-testing.md)
-* [3.3 Checking Development Tests](3-testing/3.3-checking-development-tests.md)
 
 ## 4 Evaluation <a href="#evaluation" id="evaluation"></a>
 
