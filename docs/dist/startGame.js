@@ -5,9 +5,11 @@ import {terrainGenerate} from "./terrainGenerate.js";
 import {generateVehicle} from "./generateVehicle.js";
 import {spawnPoints} from "./spawnPoints.js";
 import {detectCollision} from "./detectCollision.js";
+import {endGame} from "./endGame.js";
 export function startGame() {
   document.getElementById("menu")?.classList.add("hide");
   const gravity = -15;
+  const epochTime = Date.now();
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1e4);
   const renderer = new THREE.WebGLRenderer();
@@ -135,8 +137,10 @@ export function startGame() {
       points.splice(points.indexOf(result), 1);
     }
     if (points.length == 0) {
+      endGame(Date.now() - epochTime);
+    } else {
+      window.requestAnimationFrame(animate);
     }
-    window.requestAnimationFrame(animate);
   }
   animate();
 }
