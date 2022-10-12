@@ -5,10 +5,12 @@ import { terrainGenerate } from "./terrainGenerate";
 import { generateVehicle } from "./generateVehicle";
 import { spawnPoints } from "./spawnPoints";
 import { detectCollision } from "./detectCollision";
+import { endGame } from "./endGame";
 
 export function startGame() {
   document.getElementById("menu")?.classList.add("hide");
   const gravity = -15;
+  const epochTime = Date.now();
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
@@ -198,10 +200,10 @@ export function startGame() {
       points.splice(points.indexOf(result), 1);
     }
     if (points.length == 0) {
-      // end game
+      endGame(Date.now() - epochTime);
+    } else {
+      window.requestAnimationFrame(animate);
     }
-
-    window.requestAnimationFrame(animate);
   }
   animate();
 }
