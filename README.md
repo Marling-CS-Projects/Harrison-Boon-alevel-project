@@ -6,6 +6,10 @@ description: Computer Science H446-03
 
 <figure><img src=".gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
+Note to Assessor: This project has been created with interactive elements. In order to view as intended by the students, please follow the secure link below.
+
+
+
 |                  |                |
 | ---------------- | -------------- |
 | Candidate Name   | Harrison Boon  |
